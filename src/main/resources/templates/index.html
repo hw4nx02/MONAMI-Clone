@@ -2,7 +2,7 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <th:block th:replace="~{_fragments/_head :: my-head('MONAMI')}"/>
-    <link rel="stylesheet" th:href="@{/assets/css/product.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}"/>
 </head>
 
 <body>
@@ -12,6 +12,24 @@
 
 </div>
 
-<th:block th:replace="~{_fragments/footer}" />
+<!--<th:block th:replace="~{_fragments/footer}" />-->
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach((v, i) => {
+           v.addEventListener('mouseover', (e) => {
+               const current = e.currentTarget;
+               const sub = current.querySelector('.sub-item');
+               // scrollHeight는 요소의 크기를 벗어난 만큼의 높이를 의미
+               // sub의 height=0, overflow=hidden이므로 sub의 높이를 scrollHeight만큼 설정해주어서 마우스를 올렸을 때 보이게 함
+               sub.style.height = sub.scrollHeight + 'px';
+           });
+
+           v.addEventListener('mouseout', (e) => {
+               const current = e.currentTarget;
+               const sub = current.querySelector('.sub-item');
+               sub.style.height = '0px';
+           });
+       });
+    </script>
 </body>
 </html>
