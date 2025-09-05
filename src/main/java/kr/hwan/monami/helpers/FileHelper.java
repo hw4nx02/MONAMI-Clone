@@ -245,7 +245,7 @@ public class FileHelper {
         /** 3) 업로드 결과를 Beans에 저장 */
         UploadItem item = new UploadItem();
         item.setContentType(multipartFile.getContentType());
-        item.setFiledName(multipartFile.getName());
+        item.setFieldName(multipartFile.getName());
         item.setFileSize(multipartFile.getSize());
         item.setOriginName(multipartFile.getOriginalFilename());
         item.setFilePath(filePath);

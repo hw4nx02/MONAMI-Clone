@@ -9,11 +9,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LandingController {
 
     /**
-     *
+     * 랜딩
      * @return
      */
     @GetMapping({"/", "/index"})
     public String index() {
         return "index.html";
     }
+
+    
 }

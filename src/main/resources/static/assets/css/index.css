@@ -1,66 +1,60 @@
 @charset "utf-8";
-
-/* ===== 공통 초기화 ===== */
-body {
-    width: 100%;
-    margin: 0;
-}
-
-img {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&display=swap');
 
 a {
     text-decoration: none;
-    color: inherit;
-    display: inline-block;
 }
 
-/* ===== Header 전체 컨테이너 ===== */
 .header-container {
-    position: fixed;
+    position: fixed; /* 항상 상단에 고정 */
     top: 0;
     left: 0;
     right: 0;
-    width: 100%;
+    z-index: 1000;
+    background: #fff; /* 겹쳤을 때 배경색 */
+    border-bottom: 1px solid #eee;
 
-    .header-top,
-    .header-menu {
-        max-width: 1200px;
-        margin: 0 auto;
-        box-sizing: border-box;
-    }
-    /* --- 상단 영역 (SNS + Topmenu) --- */
     .header-top {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
         display: flex;
         justify-content: space-between;
-        align-items: center;
 
-        .sns ul,
-        .topmenu ul {
-          display: flex;
-          gap: 10px; /* li 간격 */
+        .sns,
+        .topmenu {
+            list-style: none;
+            display: flex;
+            font-family: "Montserrat", sans-serif;
+
+            ul {
+                gap: 10px;
+            }
+
+            .menu {
+                list-style: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 300;
+
+                a {
+                    color: #555;
+                }
+            }
         }
     }
 
-      /* --- 메뉴 영역 --- */
     .header-menu {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        max-width: 1400px;
         width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
 
         .logo {
             width: 160px;
-            height: 100px;
+            height: 90px;
         }
 
         .gnb {
@@ -68,58 +62,58 @@ a {
             align-items: center;
 
             .menu-container {
+                list-style: none;
+                margin: 0;
+                padding: 0;
                 display: flex;
 
-                .menu-item {
-                    position: relative; /* 하위 메뉴 기준점 */
+                a {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 179px;
+                    height: 40px;
+                    color: #555;
 
-                    a {
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        width: 179px;
-                        height: 40px;
-                        font-weight: bold;
-                        transition: color 0.2s, border-bottom 0.2s;
-
-                        &:hover {
-                            color: #c40f39;
-                            border-bottom: 5px solid #c40f39;
-                        }
-                    }
-
-                    /* --- 서브 메뉴 --- */
-                    .sub-item {
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        margin: 0;
-                        padding: 0;
-                        height: 0;
-                        overflow: hidden;
-                        transition: height 0.18s ease-out;
-                        z-index: 1000;
+                    &:hover {
+                        color: #c40f39;
                     }
                 }
-            }
+
+                .menu-item {
+                    position: relative;
+
+                    .sub-item {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        position: absolute;
+                        z-index: 1000;
+                        height: 0;
+                        overflow: hidden;
+                        transition: all 180ms ease-out;
+                        background: #fff; /* 겹쳤을 때 배경색 */
+                    }
+                }
         }
     }
 }
 
-/* ===== Layout & Footer ===== */
 .container {
-width: 100%;
+    position: relative;
+    margin-top: 160px; /*header 높이만큼 내려줌*/
+
+    #banner_img {
+        width: 100%;
+        height: 625px;
+    }
 }
 
-.footer {
-position: relative;
-width: 100%;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 400px) {
-.container {
-width: 100%;
-padding: 0 20px;
-}
+/* 맨 아래에 노출 */
+footer {
+    background: #f5f5f5;
+    padding: 20px 0;
+    text-align: center;
+    color: #555;
+    font-size: 14px;
 }
