@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <th:block th:replace="~{_fragments/_head :: my-head('MONAMI')}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/index.css}"/>
+</head>
+
+<body>
+<th:block th:replace="~{_fragments/header}" />
+
+<div class="container">
+    <div class="banner">
+        <img id="banner_img" th:src="@{/assets/img/monami_banner.png}">
+    </div>
+
+    <!-- New Arrivals -->
+    <div class="new">
+        <div class="new-top">
+            <div class="new-top-left">
+                <h2>NEW <br/>
+                    ARRIVALS</h2>
+                <p>가장 먼저 만나는 설레는 기다림</p>
+                <img th:src="@{/assets/img/fx_zeta_c3.jpg}"/>
+            </div>
+            <img th:src="@{/assets/img/zequenz_note.jpg}"/>
+        </div>
+        <div class="new-btm">
+            <img th:src="@{/assets/img/pluspen_3000_prime.jpg}"/>
+            <img th:src="@{/assets/img/153_id_pen.jpg}"/>
+            <img th:src="@{/assets/img/pluspen_3000.jpg}"/>
+        </div>
+    </div>
+
+    <div class="best">
+        <h2>BEST PRODUCT</h2>
+        <p>언제 어디서나 생활 속에 함께하는 모나미</p>
+
+        <ul>
+            <li>프리미엄 펜</li>
+            <li>펜, 펜슬</li>
+            <li>마카, 컬러링</li>
+            <li>노트, 사무용품</li>
+        </ul>
+    </div>
+
+    <div class="video">
+        <video loop class="bgvid" id="bgvid">
+            <source src="https://dfrkkcv2hg1jc.cloudfront.net/data/video/monami_brand_web_60.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="board">
+        <div class="new">
+
+        </div>
+
+        <div class="inquiry">
+
+        </div>
+
+        <div class="shop">
+
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="~{_fragments/footer}" />
+
+    <script>
+        document.querySelectorAll('.menu-item').forEach((v, i) => {
+           v.addEventListener('mouseover', (e) => {
+               const current = e.currentTarget;
+               const sub = current.querySelector('.sub-item');
+               // scrollHeight는 요소의 크기를 벗어난 만큼의 높이를 의미
+               // sub의 height=0, overflow=hidden이므로 sub의 높이를 scrollHeight만큼 설정해주어서 마우스를 올렸을 때 보이게 함
+               sub.style.height = sub.scrollHeight + 'px';
+           });
+
+           v.addEventListener('mouseout', (e) => {
+               const current = e.currentTarget;
+               const sub = current.querySelector('.sub-item');
+               sub.style.height = '0px';
+           });
+       });
+    </script>
+</body>
+</html>

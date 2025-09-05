@@ -1,6 +1,6 @@
 package kr.hwan.monami;
 
-import kr.hwan.myshop.exceptions.MyException;
+import kr.hwan.monami.exceptions.MyException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

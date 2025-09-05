@@ -1,6 +1,6 @@
 package kr.hwan.monami;
 
-import kr.hwan.myshop.interceptors.MyInterceptor;
+import kr.hwan.monami.interceptors.MyInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
